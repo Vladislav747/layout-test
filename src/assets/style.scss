@@ -1,0 +1,32 @@
+@import "_fonts", 
+        "_vars";
+
+
+
+
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>========================================
+@import "null.scss";
+body {
+        margin: 0;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 14px;
+        color: $primary-color;
+}
+
+@import "header.scss";
+
+
+//<Основная сетка>===========================================
+.container{
+        max-width: $mw + px;
+        margin: 0 auto;
+        @media (max-width: $md3+px){
+                max-width: none;
+                padding: 0 10px;
+        }
+
+}
+//</Основная сетка>===========================================
+
+
