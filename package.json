@@ -2,6 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "main": "index.js",
+  "homepage":"https://Vladislav747.github.io/Layout",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "predeploy": "npm run build",

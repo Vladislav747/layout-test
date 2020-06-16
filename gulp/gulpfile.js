@@ -9,6 +9,9 @@ imagemin     = require('gulp-imagemin'),
 pngquant     = require('imagemin-pngquant'),
 gcmq = require('gulp-group-css-media-queries');
 
+const ghPages = require('gh-pages'),
+    path = require('path');
+
 gulp.task('html_build', function (done) {
     return gulp.src('../src/*.html')
         .pipe(fileinclude())
@@ -63,3 +66,8 @@ gulp.task('webServer', function(done) {
 });
 
 gulp.task('default', gulp.series('html_build', 'img', 'css_build', 'js_build', 'fonts_build', 'webServer'));
+
+function deploy(cb) {
+    ghPages.publish(path.join(process.cwd(), './build'), cb);
+  }
+exports.deploy = deploy;
