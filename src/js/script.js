@@ -1,7 +1,27 @@
 //Обработчик меню иконки
-let user_icon = document.querySelector('.user-header__icon');
+let userIcon = document.querySelector('.user-header__icon');
 
-user_icon.addEventListener("click", function(e){
-    let user_menu = document.querySelector('.user-header__menu');
-    user_menu.classList.toggle('active');
+userIcon.addEventListener("mouseover", function(e){
+    let userMenu = document.querySelector('.user-header__menu');
+    userMenu.classList.toggle('active');
 });
+
+
+//menu burger
+
+
+let iconMenu = document.querySelector('.icon-menu');
+
+if(iconMenu != null){
+    let delay = 500;
+    let body = document.querySelector("body");
+    let menuBody = document.querySelector(".menu__body");
+    iconMenu.addEventListener("click", (e) => {
+        console.log("check");
+        
+            menuBody.classList.toggle("_active");
+        
+        }
+    )
+}
+

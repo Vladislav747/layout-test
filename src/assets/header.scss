@@ -1,20 +1,34 @@
 /* HEADER */
 .header{
     background-color: #1c242a;
+    //header__container
     &__container{
             position: relative;
             display: flex;
             align-items: center;
             height: 75px;
     }
+    //.header__logo
     &__logo{
+        width: 144px;
+        display: inline-block;
         img{
             width: 50px;
             height: auto;
+
+            @media(max-width: $md3+px){
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
         }
             
     }
+    //header__menu
     &__menu{
+
+
             
     }
     &__actions{
@@ -22,16 +36,62 @@
     }
 }
 
+//menu
 .menu{
     padding: 0px 0px 0px 30px/950px * 100%;
     flex: 1 1 auto;
-    &__icon{}
-    &__body{}
+
+    @media screen and (max-width: 425px){
+        flex: 0 0 auto;
+
+    }
+
+    // .menu__body
+    &__body{
+        width:100%;
+        height: 100%;
+        left: 0;
+        top:0;
+        overflow: auto;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.8s ease 0s;
+
+        @media screen and (max-width: 425px) {
+            display: none;
+
+            &._active {
+                display: block;
+                background-color: rgba(28, 36, 42, 0.8);
+                position: fixed;
+                visibility: visible;
+                opacity: 1;
+                padding: 80px 0px 20px 0px;
+            }
+        }
+        &:after{
+            content: "";
+            display: none;
+            background-color: #1c242a;
+            //position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+        }
+
+
+        
+    }
     &__list{
         display: flex;
         justify-content: center;
         li{
             margin: 0px 15px;
+        }
+        @media (max-width:$md3+px) {
+            display: block;
+            text-align: center;
         }
     }
     &__link{
@@ -39,6 +99,32 @@
             text-transform: uppercase;
             letter-spacing: 1.4px;
             color: #fff;
+            cursor: pointer;
+            @media (max-width:$md3+px) {
+                &:hover{
+                    color:#000;
+                }
+            } 
+    }
+}
+
+.icon-menu {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    fill: white;
+    cursor: pointer;
+    display: none;
+
+    @media (max-width: 425px){
+        position: relative;
+        width: 144px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 5;
+        display: block;
+
     }
 }
 
@@ -46,6 +132,7 @@
 /* HEADER MAIN */
 
 .user-header{
+
     &__icon{
         cursor: pointer;
         img{
@@ -80,6 +167,13 @@
         color: #fff;
         padding: 0px 0px 0px 30px;
         display: inline-block;
+        
+        @media (max-width:$md3+px) {
+            padding: 0px 0px 0px 70px;
+            white-space: pre;
+        }
+
+
         &_1{
             background: url("../img/black-and-white.svg") left no-repeat;
         }
@@ -99,6 +193,8 @@
     display: flex;
     align-items: center;
     height: 75px;
+    z-index: 2;
+    position: relative;
 
     &__region{
         @extend .menu__link;
@@ -129,9 +225,9 @@
         }
     }
     &__user{
-        margin: 0px 0px 0px 30px;
-        @media (max-width: 890px) {
-            margin: 0px 0px 0px 15px;
+        margin: 0px 0px 0px 15px;
+        @media (max-width: $md3 + px) {
+            margin: 0px 20px 0px 15px;
         }
     }
 

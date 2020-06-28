@@ -5,8 +5,7 @@
   "homepage":"https://Vladislav747.github.io/Layout",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "cd gulp && npx gulp deploy"
   },
   "author": "",
   "license": "ISC",
